@@ -7,6 +7,7 @@ import {
   BadRequestException,
   ConflictException,
   Injectable,
+  NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
@@ -75,4 +76,15 @@ export class UserService {
   }
 
   // 프로필 조회
+  async getProfile(userId: number) {
+    const user = await this.userReposiroty.findOne({
+      select: ['email', 'name', 'point', 'phone_number', 'adress'],
+      where: { id: userId }, // 프리티어가 'id'를 id로 바꿔버린다에엥
+    });
+
+    if (_.isNil(user)) {
+      throw new NotFoundException('사용자가 존재하지 않습니다.');
+    }
+    return user;
+  }
 }

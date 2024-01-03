@@ -27,13 +27,13 @@ export class UserController {
     return await this.userService.signin(signinDto.email, signinDto.password);
   }
 
-  // @UseGuards(RolesGuard)
+  @UseGuards(AuthGuard('jwt'))
   @Get('profile')
   async getProfile(@UserInfo() user: User) {
     return await this.userService.getProfile(user.id);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(AuthGuard('jwt')) // Guard : 요청에 대한 승인 or 거부. 미들웨어와 달라
   @Get('email')
   getEmail(@UserInfo() user: User) {
     return { email: user.email };
