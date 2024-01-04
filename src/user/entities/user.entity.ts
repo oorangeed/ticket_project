@@ -32,8 +32,8 @@ export class User {
   @Column({ type: 'int', default: 1000000, nullable: false })
   point: number;
 
-  @Column({ type: 'int', nullable: false })
-  phone_number: number;
+  @Column({ type: 'varchar', nullable: false })
+  phone: string;
 
   @Column({ type: 'varchar', nullable: false })
   adress: string;

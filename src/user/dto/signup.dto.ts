@@ -23,4 +23,12 @@ export class SignupDto {
   role: Role;
 
   point: number;
+
+  @IsString()
+  @IsNotEmpty({ message: '핸드폰번호는 필수입니다.' })
+  phone: string;
+
+  @IsString()
+  @IsNotEmpty({ message: '주소는 필수입니다.' })
+  adress: string;
 }

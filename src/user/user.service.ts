@@ -36,6 +36,8 @@ export class UserService {
     name: string,
     role: Role,
     point: number,
+    phone: string,
+    adress: string,
   ) {
     const existingUser = await this.findByEmail(email);
     if (existingUser) {
@@ -55,6 +57,11 @@ export class UserService {
     await this.userReposiroty.save({
       email,
       password: hashedPassword,
+      name,
+      role,
+      point,
+      phone,
+      adress,
     });
   }
 
@@ -78,8 +85,8 @@ export class UserService {
   // 프로필 조회
   async getProfile(userId: number) {
     const user = await this.userReposiroty.findOne({
-      select: ['email', 'name', 'point', 'phone_number', 'adress'],
-      where: { id: userId }, // 프리티어가 'id'를 id로 바꿔버린다에엥
+      select: ['email', 'name', 'point', 'phone', 'adress'],
+      where: { id: userId },
     });
 
     if (_.isNil(user)) {
