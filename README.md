@@ -1,4 +1,4 @@
-과제 하다가 너무 정리가 안되서 어제 다 엎고 다시 시작했습니다. 그래서 작성된 분량이 좀 작은데, 꾸준히 채워보겠습니다. 
+과제 하다가 너무 정리가 안되서 어제 다 엎고 다시 시작했습니다. 그래서 작성된 분량이 좀 적은데, 꾸준히 채워보겠습니다. 
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
